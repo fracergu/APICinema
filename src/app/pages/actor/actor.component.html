@@ -1,0 +1,35 @@
+<div class="row animate__animated animate__fadeIn mt-3" *ngIf="actor">
+    <div class="col-md-6">
+        <img [src]="actor.profile_path | poster" [alt]="actor.name" class="img-thumbnail">
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>{{ actor.name }}</h1>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-outline-info mt-3"
+                (click)="routeBack()">Volver</button>
+            </div>
+        </div>
+        <h3>{{ actor.birthday }}</h3>
+        <h4>{{ actor.place_of_birth }}</h4>
+        <div class="row">
+            <div class="col-md-4 text-white">Popularidad</div>
+            <div class="col-md-8">
+                <star-rating 
+                        [value]="actor.popularity" 
+                        totalstars="10" 
+                        checkedcolor="yellow" 
+                        uncheckedcolor="grey" 
+                        size="14px" 
+                        readonly="false"></star-rating>
+            </div>
+        </div>
+        <p>{{ actor.biography}}</p>
+    </div>
+    <div class="row text-white mt-3" *ngIf="actorMovies.length > 0">
+        <h1>Aparece en...</h1>
+        <app-movie-poster-grid [movies]="actorMovies"></app-movie-poster-grid>
+    </div>
+</div>

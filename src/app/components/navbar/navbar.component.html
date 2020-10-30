@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm">
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="router-link-active" ><h1><b>API</b>Cinema</h1></a>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      </ul>
+      <div class="d-flex">
+        <input #txtSearch
+               (keyup.enter)="searchMovie(txtSearch.value)"
+               class="form-control mr-sm-2" type="search" placeholder="Buscar película" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" 
+                type="submit"
+                (click)="searchMovie(txtSearch.value)">Buscar</button>
+      </div>
+
+    </div>
+  </nav>
