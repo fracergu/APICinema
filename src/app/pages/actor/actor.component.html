@@ -28,7 +28,7 @@
         </div>
         <p>{{ actor.biography}}</p>
     </div>
-    <div class="row text-white mt-3" *ngIf="actorMovies.length > 0">
+    <div class="row text-white m-3 container" *ngIf="actorMovies.length > 0">
         <h1>Aparece en...</h1>
         <app-movie-poster-grid [movies]="actorMovies"></app-movie-poster-grid>
     </div>
