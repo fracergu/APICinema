@@ -1,4 +1,5 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Movie } from 'src/app/interfaces/now-playing-response';
 import { MoviesService } from 'src/app/services/movies.service'
 
@@ -22,19 +23,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     const pos = (document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight + 1;
     const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
 
-    console.log(pos)
-    console.log(max)
-
     if (pos > max && !this.service.loading){
-      this.service.getNowPlaying().subscribe( result => {
+        this.spinner.show();
+        this.service.getNowPlaying().subscribe( result => {
         // Return filtered result: Only movies with poster.
         this.movies.push(...result.filter(movie => movie.poster_path !== null))
+        this.spinner.hide();
       });
     }
 
   }
 
-  constructor(private service: MoviesService) { 
+  constructor(private service: MoviesService,
+              private spinner: NgxSpinnerService) { 
     
   }
 

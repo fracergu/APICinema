@@ -8,6 +8,7 @@ import { ComponentsModule } from '../components/components.module'
 import { PipesModule } from '../pipes/pipes.module';
 import { RatingModule } from 'ng-starrating';
 import { ActorComponent } from './actor/actor.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ActorComponent } from './actor/actor.component';
     CommonModule,
     ComponentsModule,
     PipesModule,
-    RatingModule
+    RatingModule,
+    NgxSpinnerModule
   ]
 })
 export class PagesModule { }
