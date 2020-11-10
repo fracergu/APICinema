@@ -24,11 +24,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     const max = (document.documentElement.scrollHeight || document.body.scrollHeight);
 
     if (pos > max && !this.service.loading){
-        this.spinner.show();
         this.service.getNowPlaying().subscribe( result => {
         // Return filtered result: Only movies with poster.
         this.movies.push(...result.filter(movie => movie.poster_path !== null))
-        this.spinner.hide();
       });
     }
 
